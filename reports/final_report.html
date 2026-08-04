@@ -100,6 +100,12 @@ code { background:var(--card); border:1px solid var(--line); border-radius:6px;
 
 <h1>The gate audit</h1>
 <div class="sub">Production rule under test: ship if ≥45 of 50 episodes succeed.</div>
+<div class="callout">The policies in this audit: <b>v1</b> — the scripted
+baseline; it skips tipped-over parts. <b>v2</b> — v1 plus a maneuver that
+stands tipped parts up first. <b>mild / heavy</b> — v1 seeing the cylinders
+through 2&nbsp;mm / 5&nbsp;mm of seeded perception error. The near-threshold
+strips further down use <b>calibrated reference policies</b> — instruments
+with a dialed success rate, labeled wherever they appear.</div>
 
 <h2>What 50 episodes said vs. what 1,000 revealed</h2>
 <table class="theory"><tr><th>policy</th><th>small-sample measured</th>

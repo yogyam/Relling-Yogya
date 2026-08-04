@@ -1059,3 +1059,18 @@ no shrink-to-fit games) and committed the result as MEMO.pdf: exactly
 2 pages, verified page by page. The PDF pins the page count so no one
 else's markdown renderer can make the memo look over-limit; MEMO.md stays
 canonical, stated in the README.
+
+## Report fix: the audit's policies are now introduced before they're used
+
+Yogya's catch on a stranger-read of the report: section 2 uses v1/v2/mild/
+heavy as if the reader knows them, but only the memo defines them — a grader
+opening the report first (which the packet says they do) meets "v2" cold.
+Added a four-line legend at the top of the gate audit naming each policy in
+one clause (v1 skips tipped parts, v2 stands them up, mild/heavy = v1 with
+2/5 mm seeded perception error, reference policies = dialed instruments).
+Verified the regenerated HTML differs from the published version by exactly
+that block, re-printed the PDF (still 4 pages, legend lands at the top of
+the audit page). Also re-checked §4.3 on Yogya's question about trimming the
+report for the 60-second timer: everything in section 2 is required by §4.4
+("side by side... watch the gate flip"), so nothing was cut — the
+sixty-second triad already lives entirely in section 1.
