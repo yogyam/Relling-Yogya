@@ -41,15 +41,13 @@ sits exactly on the target, with no margin in either direction — so for any
 policy near the target, the verdict is decided by which 50 episodes came up,
 not by the policy.
 
-What this sweep does and doesn't prove, stated plainly: the reference policy
-draws each episode's outcome from a seeded rate and then arranges the scene
-for the real judge to rule. So the sweep is an end-to-end check of the
-measurement chain (judge, gate arithmetic, seeding) against a known truth —
-not an independent physics experiment. By construction it can only disagree
-with the coin-flip math if the judge misrules an arranged scene. The error
-rates above therefore stand on the coin-flip model itself; the model's one
-load-bearing assumption, independence, is what Finding 5 tests on the real
-policies.
+What this sweep proves, stated plainly: the reference policy draws each
+outcome from a seeded rate and arranges the scene for the real judge to
+rule, so it checks the measurement chain (judge, gate arithmetic, seeding)
+against a known truth — it is not an independent physics experiment, and it
+can only disagree with the coin-flip math if the judge misrules an arranged
+scene. The error rates stand on the coin-flip model; its one load-bearing
+assumption, independence, is tested in Finding 5.
 
 **3. The gate can't see *why* a policy fails — a failure taxonomy can.** Two
 of my real policies (v1 skips tipped-over parts; v2 stands them up) both
@@ -124,18 +122,9 @@ written to be re-tuned when they arrive, not redone.
   category. The judge treats an upside-down cylinder as upright — harmless
   only because the part is symmetric.
 
-## Stretch: held-out perturbation (predicted first, then run)
-
-Prediction, journaled before running: with 10% larger cylinders and the
-policy unchanged, placement collapses grow fastest — the policy stacks with
-nominal part height, so placement falls short by 3/9/15 mm per layer.
-Result (n=200, same seeds): successes 11 → 0, and the height-shortfall
-mechanism was real — but it killed stacks earlier than predicted (base
-shoved during the second placement, +10 base-misplaced), and grasp misses
-grew most (+17), which I predicted flat. Tipped share stayed exactly flat,
-as predicted. Lesson: predicting the direction of damage was easy;
-predicting which failure category absorbs it was not — one more reason a
-success count tells you less than a taxonomy.
+(The stretch experiment — predict-then-test with 10% larger parts — is
+written up in the README's Stretch section, next to its regeneration
+command.)
 
 ## With another week
 

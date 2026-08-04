@@ -7,7 +7,7 @@ production gate ("ship at ≥45/50"). **Read these in order:**
 | What | Where |
 |---|---|
 | The run report (open this first) | [reports/final_report.html](reports/final_report.html) — or the [PDF copy](reports/final_report.pdf), which GitHub previews in the browser |
-| The gate memo (≤2 pages) | [MEMO.md](MEMO.md) |
+| The gate memo (≤2 pages) | [MEMO.md](MEMO.md) — [PDF copy](MEMO.pdf) (2 pages exactly; printed from the markdown, which stays canonical) |
 | The decision journal | [JOURNAL.md](JOURNAL.md) |
 | All code | [starter/](starter/) |
 
@@ -71,6 +71,17 @@ python gate_design.py      # exact arithmetic + reads the Finding 1/3 records
 ```bash
 python run_eval.py --n 200 --part-scale 1.1 --out runs/perturb_110
 ```
+The writeup (moved here from the memo to keep it at two pages): prediction,
+journaled before running — with 10% larger cylinders and the policy
+unchanged, placement collapses grow fastest, because the policy stacks with
+nominal part height and placement falls short by 3/9/15 mm per layer.
+Result (n=200, same seeds): successes 11 → 0, and the height-shortfall
+mechanism was real — but it killed stacks earlier than predicted (base
+shoved during the second placement, +10 base-misplaced), and grasp misses
+grew most (+17), which I predicted flat. Tipped share stayed exactly flat,
+as predicted. Lesson: predicting the direction of damage was easy;
+predicting which failure category absorbs it was not — one more reason a
+success count tells you less than a taxonomy.
 
 **The report artifact (renders from the runs above):**
 ```bash

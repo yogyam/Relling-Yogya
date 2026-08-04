@@ -1041,3 +1041,21 @@ with headless Chrome, because GitHub previews PDFs in the browser but not
 HTML. Checked page by page before committing (chip strips, tables, and
 callouts all survive printing; 4 pages). The HTML stays canonical — declared
 in the README, since the PDF flattens the per-repetition tooltips.
+
+## Page-limit check on the memo (packet: "≤2 pages")
+
+Yogya asked whether the run report had a 2-page limit — re-read the packet:
+no, the report's constraint is the sixty-second read; the ≤2 pages applies
+to the GATE MEMO. Since MEMO.md is markdown, "pages" only exist when
+rendered, so we rendered it and measured instead of guessing: at a roomy
+serif render it spilled to 3 pages. Two fixes, both content-honest:
+(1) moved the stretch-perturbation writeup out of the memo into the README's
+Stretch section (with a pointer left behind) — the packet defines the memo
+as Part D findings + recommendation + limitations + next week; the stretch
+is a separate §6 deliverable and was the only non-required section;
+(2) compressed the Finding 2 scope paragraph (same claims, fewer words).
+Then rendered at standard memo typography (11pt sans, 1.35 line height —
+no shrink-to-fit games) and committed the result as MEMO.pdf: exactly
+2 pages, verified page by page. The PDF pins the page count so no one
+else's markdown renderer can make the memo look over-limit; MEMO.md stays
+canonical, stated in the README.
