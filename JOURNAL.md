@@ -1084,3 +1084,9 @@ redundant the moment the legend above it was added. Both removed; nothing
 else qualifies — the remaining candidates (cost tile, stack-height tile) are
 requirement-bearing. Lesson: adding text (the legend) can create redundancy
 elsewhere; re-read the whole artifact after any addition.
+
+Formatting pass (Yogya's call): the three dense callouts — the policy
+legend, the truth-table takeaways, the calibration/scope block — converted
+from prose paragraphs to bullet lists, same words, no added length.
+Verified the diff touches only those blocks plus two CSS rules; PDF
+re-printed, still 4 pages.

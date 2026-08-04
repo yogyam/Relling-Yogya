@@ -41,6 +41,8 @@ EXTRA_CSS = """
 .callout { border-left:3px solid var(--bar); padding:8px 14px; margin:14px 0;
   color:var(--ink2); font-size:14px; }
 .callout b { color:var(--ink); }
+.callout ul { margin:4px 0 2px; padding-left:18px; }
+.callout li { margin:4px 0; }
 """
 
 
@@ -227,22 +229,28 @@ def build() -> Path:
 
 <h1>The gate audit</h1>
 <div class="sub">Production rule under test: ship if ≥45 of 50 episodes succeed.</div>
-<div class="callout">The policies in this audit: <b>v1</b> — the scripted
-baseline; it skips tipped-over parts. <b>v2</b> — v1 plus a maneuver that
-stands tipped parts up first. <b>mild / heavy</b> — v1 seeing the cylinders
-through 2&nbsp;mm / 5&nbsp;mm of seeded perception error. The near-threshold
-strips further down use <b>calibrated reference policies</b> — instruments
-with a dialed success rate, labeled wherever they appear.</div>
+<div class="callout">The policies in this audit:
+<ul>
+<li><b>v1</b> — the scripted baseline; it skips tipped-over parts</li>
+<li><b>v2</b> — v1 plus a maneuver that stands tipped parts up first</li>
+<li><b>mild / heavy</b> — v1 seeing the cylinders through 2&nbsp;mm /
+5&nbsp;mm of seeded perception error</li>
+<li><b>calibrated reference policies</b> — instruments with a dialed
+success rate, used in the near-threshold strips further down; labeled
+wherever they appear</li>
+</ul></div>
 
 <h2>What 50 episodes said vs. what 1,000 revealed</h2>
 <table class="theory"><tr><th>policy</th><th>small-sample measured</th>
 <th>true rate (n=1000)</th><th>95% CI</th></tr>{truth_rows}</table>
-<div class="callout">The gate-sized sample overestimated v1 <b>2×</b> (10% vs
-5.3%). v2 trends better than v1 (6.6% vs 5.3%) but <b>even n=1000 does not
-resolve them</b> — their CIs overlap, as do the mild-noise variant's. Three
-mechanically different policies whose success counts never separate: the gate
-is mechanism-blind; the failure taxonomy above is what tells these policies
-apart.</div>
+<div class="callout"><ul>
+<li>The gate-sized sample overestimated v1 <b>2×</b> (10% vs 5.3%).</li>
+<li>v2 trends better than v1 (6.6% vs 5.3%) but <b>even n=1000 does not
+resolve them</b> — their CIs overlap, as do the mild-noise variant's.</li>
+<li>Three mechanically different policies whose success counts never
+separate: the gate is mechanism-blind; the failure taxonomy above is what
+tells them apart.</li>
+</ul></div>
 
 <h2>Two policy variants, side by side — every gate verdict</h2>
 <div class="two">
@@ -265,16 +273,18 @@ full 50-episode gate on its own seeds, judged episode by episode.</div>
 <table class="theory"><tr><th>true rate</th><th>pipeline (200 gates)</th>
 <th>coin-flip (20k gates)</th><th>exact theory</th><th>dispersion ratio</th></tr>
 {theory_rows}</table>
-<div class="callout">Instrument calibration: dialed {cal["dialed_p"]:.0%},
-pipeline measured <b>{cal["measured"]:.1%}</b> over n={cal["n"]} judged
-episodes. Scope, stated plainly: the reference policy draws each outcome from
-a seeded rate and arranges the scene for the real judge to rule — so this
-sweep validates the <b>measurement chain</b> (judge, gate arithmetic, seeding)
-against a known truth; by construction it cannot disagree with the coin-flip
-model unless the judge misrules an arranged scene. The gate's error rates
-therefore rest on the binomial model plus its independence assumption — which
-is checked on the <b>real</b> policies (dispersion ratios ≈1: v1 0.93, v2
-1.06, mild 0.99, heavy 1.17), not assumed.</div>
+<div class="callout"><ul>
+<li>Instrument calibration: dialed {cal["dialed_p"]:.0%}, pipeline measured
+<b>{cal["measured"]:.1%}</b> over n={cal["n"]} judged episodes.</li>
+<li>Scope, stated plainly: the reference policy draws each outcome from a
+seeded rate and arranges the scene for the real judge to rule — the sweep
+validates the <b>measurement chain</b> (judge, gate arithmetic, seeding)
+against a known truth, and cannot disagree with the coin-flip model unless
+the judge misrules an arranged scene.</li>
+<li>The gate's error rates therefore rest on the binomial model plus its
+independence assumption — checked on the <b>real</b> policies (dispersion
+ratios ≈1: v1 0.93, v2 1.06, mild 0.99, heavy 1.17), not assumed.</li>
+</ul></div>
 
 <h2>Reproduce</h2>
 <div class="note">Every number regenerable from a fresh clone — commands in
