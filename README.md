@@ -6,7 +6,7 @@ production gate ("ship at ≥45/50"). **Read these in order:**
 
 | What | Where |
 |---|---|
-| The run report (open this first) | [reports/final_report.html](reports/final_report.html) |
+| The run report (open this first) | [reports/final_report.html](reports/final_report.html) — or the [PDF copy](reports/final_report.pdf), which GitHub previews in the browser |
 | The gate memo (≤2 pages) | [MEMO.md](MEMO.md) |
 | The decision journal | [JOURNAL.md](JOURNAL.md) |
 | All code | [starter/](starter/) |
@@ -76,6 +76,10 @@ python run_eval.py --n 200 --part-scale 1.1 --out runs/perturb_110
 ```bash
 python final_report.py     # writes ../reports/final_report.html
 ```
+The committed `reports/final_report.pdf` is a convenience copy of that HTML
+(printed with headless Chrome) so the report previews directly on GitHub;
+the HTML is the canonical artifact — its verdict chips carry per-repetition
+tooltips the PDF flattens.
 
 ## Triage tools
 

@@ -1035,3 +1035,9 @@ what its four numbers mean). Same hard rule as the memo voice pass: a sample
 rewrite approved first, then applied; every number byte-identical, wording
 only. Verified by regenerating and reading the full diff — the only numeric
 change anywhere is formatting ("n=1000" -> "1,000-episode" in prose).
+
+Also added: reports/final_report.pdf, a convenience copy of the HTML printed
+with headless Chrome, because GitHub previews PDFs in the browser but not
+HTML. Checked page by page before committing (chip strips, tables, and
+callouts all survive printing; 4 pages). The HTML stays canonical — declared
+in the README, since the PDF flattens the per-repetition tooltips.
