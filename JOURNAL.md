@@ -1074,3 +1074,13 @@ the audit page). Also re-checked §4.3 on Yogya's question about trimming the
 report for the 60-second timer: everything in section 2 is required by §4.4
 ("side by side... watch the gate flip"), so nothing was cut — the
 sixty-second triad already lives entirely in section 1.
+
+Second pass at Yogya's insistence found two real cuts the first pass missed,
+both duplication rather than content: (1) the hero tile's forward reference
+to the 5.3% true rate — section 2 content inside the timed section, stated
+again nearly verbatim in the truth-table callout where it belongs; (2) the
+v1/v2 strip callout's parenthetical re-explaining reference policies, made
+redundant the moment the legend above it was added. Both removed; nothing
+else qualifies — the remaining candidates (cost tile, stack-height tile) are
+requirement-bearing. Lesson: adding text (the legend) can create redundancy
+elsewhere; re-read the whole artifact after any addition.

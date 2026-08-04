@@ -203,8 +203,7 @@ def build() -> Path:
     <div class="d">{k} of {n} episodes succeeded. The honest range around
     that number (95% confidence interval, Wilson): <b>{lo:.0%}–{hi:.0%}</b></div>
     <div class="d">In other words: 50 episodes can't tell a {lo:.0%} policy
-    from a {hi:.0%} one. A later 1,000-episode run pinned this same policy
-    at 5.3% — see the gate audit below.</div>
+    from a {hi:.0%} one.</div>
     <div class="d">Production gate (≥90% at n=50): <b>does not pass</b></div></div>
   <div class="tile"><div class="l">How high the stacks got</div>
     <div class="k">{heights[3]}·{heights[2]}·{heights[1]}·{heights[0]}</div>
@@ -252,9 +251,8 @@ apart.</div>
 </div>
 <div class="callout">Far from the threshold the gate is reliable: two below-spec
 policies, 40 gates, zero false passes. The gate's errors live near the
-threshold — probed below with calibrated reference policies (an instrument we
-declare openly: seeded dial-a-rate policies whose stacks are judged by the
-same judge as everything else).</div>
+threshold — probed below with the calibrated reference policies introduced
+above.</div>
 
 <h2>Watch the gate flip — calibrated policies near the threshold</h2>
 {oracle_strip(0.88)}
