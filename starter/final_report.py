@@ -126,9 +126,11 @@ def build() -> Path:
                 f'alt="seed {r["seed"]}">'
             )
         cards += (
-            f'<div class="card">{img}<div class="cap"><b>seed {r["seed"]}</b> · '
-            f'h={r["outcome"]["stack_height"]} · {r["category"].replace("_", " ")}<br>'
-            f'watch: <code>python render_video.py {r["seed"]} --policy v1</code>'
+            f'<div class="card">{img}<div class="cap"><b>seed {r["seed"]}</b> — '
+            f'stacked {r["outcome"]["stack_height"]} of 3 — '
+            f'{r["category"].replace("_", " ")}<br>'
+            f'watch it happen: '
+            f'<code>python render_video.py {r["seed"]} --policy v1</code>'
             f"</div></div>"
         )
 
@@ -198,24 +200,28 @@ def build() -> Path:
 <div class="hero">
   <div class="tile"><div class="l">Success rate (n=50)</div>
     <div class="k">{k / n:.0%}</div>
-    <div class="d">{k} of {n} · 95% CI (Wilson): <b>{lo:.0%}–{hi:.0%}</b></div>
-    <div class="d">n=50 cannot distinguish a {lo:.0%} policy from a {hi:.0%}
-    one. (n=1000 later pinned this same policy at 5.3% — see the audit below.)</div>
+    <div class="d">{k} of {n} episodes succeeded. The honest range around
+    that number (95% confidence interval, Wilson): <b>{lo:.0%}–{hi:.0%}</b></div>
+    <div class="d">In other words: 50 episodes can't tell a {lo:.0%} policy
+    from a {hi:.0%} one. A later 1,000-episode run pinned this same policy
+    at 5.3% — see the gate audit below.</div>
     <div class="d">Production gate (≥90% at n=50): <b>does not pass</b></div></div>
-  <div class="tile"><div class="l">Stack height reached</div>
+  <div class="tile"><div class="l">How high the stacks got</div>
     <div class="k">{heights[3]}·{heights[2]}·{heights[1]}·{heights[0]}</div>
-    <div class="d">3-stack · 2 · 1 · none — partial stacks reported separately,
-    never blended into the headline</div></div>
+    <div class="d">{heights[3]} episodes ended with all three cylinders
+    stacked, {heights[2]} with two, {heights[1]} with one, {heights[0]} with
+    none. Partial stacks are counted here, on their own — they are never
+    mixed into the headline success rate.</div></div>
   <div class="tile"><div class="l">Cost</div>
     <div class="k">{meta["wall_total_s"] / n:.0f}s</div>
-    <div class="d">per episode (wall) · full n=50 run ≈
-    {meta["wall_total_s"]:.0f}s on a laptop</div></div>
+    <div class="d">seconds of real time per episode — the full {n}-episode
+    run took {meta["wall_total_s"]:.0f} seconds on a laptop</div></div>
 </div>
 
-<h2>Failure taxonomy — ranked ({n - k} failures)</h2>
+<h2>Why episodes failed, ranked ({n - k} failures)</h2>
 <div class="bars">{bars}</div>
 
-<h2>Worst episodes first</h2>
+<h2>The worst episodes, first — each one replayable with a single command</h2>
 <div class="gallery">{cards}</div>
 
 <hr style="border:none;border-top:1px solid var(--line);margin:40px 0">
@@ -223,7 +229,7 @@ def build() -> Path:
 <h1>The gate audit</h1>
 <div class="sub">Production rule under test: ship if ≥45 of 50 episodes succeed.</div>
 
-<h2>What n=50 said vs. the truth (n=1000)</h2>
+<h2>What 50 episodes said vs. what 1,000 revealed</h2>
 <table class="theory"><tr><th>policy</th><th>small-sample measured</th>
 <th>true rate (n=1000)</th><th>95% CI</th></tr>{truth_rows}</table>
 <div class="callout">The gate-sized sample overestimated v1 <b>2×</b> (10% vs

@@ -1024,3 +1024,14 @@ v2's reorient (masked by the subsequent IK re-orient); timeout episodes
 judging with the arm possibly unparked. All are readout-defense material,
 listed here so they're on the record before someone else finds them.
 check_all.py green after all changes.
+
+## Report voice pass (same rule as the memo's)
+
+Yogya's call: the 60-second read should sound like a person, not a spec —
+fewer abbreviations ("h=2" -> "stacked 2 of 3"), no unneeded jargon ("95% CI
+(Wilson)" -> "the honest range around that number (95% confidence interval,
+Wilson)"), captions that explain themselves (the stack-height tile now says
+what its four numbers mean). Same hard rule as the memo voice pass: a sample
+rewrite approved first, then applied; every number byte-identical, wording
+only. Verified by regenerating and reading the full diff — the only numeric
+change anywhere is formatting ("n=1000" -> "1,000-episode" in prose).
